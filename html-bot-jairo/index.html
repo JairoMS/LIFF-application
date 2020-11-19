@@ -1,0 +1,102 @@
+<html>
+    <!--Definition of the checkbox menu-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <head>
+        <style>
+            h2 {text-align: center;}
+        </style>
+        <style type="text/css">
+            #inputs
+            {
+                height:150px;
+                width:150px;
+                
+                float:left;
+            }
+            input
+            {
+                margin-bottom:10px;
+            }
+            label
+            {
+                line-height:30px;
+            }
+            #form
+            {
+                height:220px;
+                width:160px;
+                margin:0px auto;
+                position:relative;
+                top:10px;
+            }
+        </style>
+        <title>
+            カテゴリ   
+        </title>
+    </head>
+    <body>
+        <h2>カテゴリ選択</h2>
+
+        <div id="form"> 
+            <div id="inputs">
+                <!--Option 1-->
+                <input type="checkbox" id="myCheck1" value="Politics" onclick="selection(id)">
+                <label for="myCheck1">政治</label><br>
+                <!--Option 2-->
+                <input type="checkbox" id="myCheck2" value="Economy" onclick="selection(id)">
+                <label for="myCheck2">経済</label><br>
+                <!--Option 3-->
+                <input type="checkbox" id="myCheck3" value="Society" onclick="selection(id)">
+                <label for="myCheck3">社会</label><br> 
+                <!--Option 4-->
+                <input type="checkbox" id="myCheck4" value="Region" onclick="selection(id)">
+                <label for="myCheck4">地域</label><br> 
+                <!--Option 5-->
+                <input type="checkbox" id="myCheck5" value="Culture" onclick="selection(id)">
+                <label for="myCheck5">文化</label><br> 
+                <!--Option 6-->
+                <input type="checkbox" id="myCheck6" value="Education" onclick="selection(id)">
+                <label for="myCheck6">教育</label><br> 
+                <!--Option 7-->
+                <input type="checkbox" id="myCheck7" value="Science" onclick="selection(id)">
+                <label for="myCheck7">科学</label><br> 
+                <!--Option 8-->
+                <input type="checkbox" id="myCheck8" value="Health" onclick="selection(id)">
+                <label for="myCheck8">健康</label><br> 
+                <!--Option 9-->
+                <input type="checkbox" id="myCheck9" value="Sports" onclick="selection(id)">
+                <label for="myCheck9">スポーツ</label><br> 
+                <!--Option 10-->
+                <input type="checkbox" id="myCheck10" value="Conflict" onclick="selection(id)">
+                <label for="myCheck10">紛争</label><br> 
+            </div>    
+        </div> 
+        <!--Initialization of LIFF-->
+        <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>   
+        <script>
+            liff.init
+            ({
+                liffId: '1655257008-ZKKnWkJv',
+            })
+            .then(() => {});
+
+            function selection(id_selection) 
+            {   
+                var x = document.getElementById(id_selection)
+                if (x.checked == true)
+                {
+                    liff.sendMessages([
+                        {
+                            'type':'text',
+                            'text':x.value
+                        }])
+                        .then(function () 
+                        {
+                            liff.closeWindow();
+                        }
+                    );
+                } 
+            }
+        </script>
+    </body>
+</html>
